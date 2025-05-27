@@ -1,0 +1,30 @@
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm w-100" style="max-width: 400px;">
+      <div class="card-header bg-info text-white text-center">
+        <h4><i class="fas fa-sign-in-alt"></i> Login</h4>
+      </div>
+      <div class="card-body bg-light">
+        <form #LoginForm="ngForm" (ngSubmit)="val(LoginForm)">
+          <div class="mb-3">
+            <label for="uname" class="form-label">Username</label>
+            <input type="text" class="form-control" ngModel name="uname" placeholder="Enter your name" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" ngModel name="password" placeholder="Enter your password" required>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-info text-white">
+              <i class="fas fa-lock"></i> Login
+            </button>
+          </div>
+        </form>
+        <div class="card-footer text-center bg-white">
+          <p class="mb-0">Don't have an account? 
+            <a href="register.html" class="text-info fw-semibold">Register here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
