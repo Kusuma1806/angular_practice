@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,9 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class CommonserviceService {
 
-  constructor() { }
+  constructor(private client:HttpClient) { }
   
   sayHello(){
     console.log("Hello from service")
   }
+  login(authen:AuthRequest){
+    console.log("inside common service login",authen)
+    return this.client.post("http://localhost:9090/auth/authenticate",authen,{ responseType: 'text' })
+  }
+}
+export class AuthRequest{
+  username:string
+  password:string
 }

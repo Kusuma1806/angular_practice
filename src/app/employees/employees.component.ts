@@ -1,5 +1,6 @@
 import { CurrencyPipe, DatePipe, SlicePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-employees',
@@ -11,13 +12,14 @@ export class EmployeesComponent {
 name="kusuma"
 employees:Employee[]
 
-constructor(){
+constructor(userService:UserService){
   this.employees= [
     new Employee(1,"pooji",9000,"trainee",new Date("2025/05/22")),
     new Employee(2,"ajay",90000,"hr",new Date("2025/05/22")),
     new Employee(4,"krish",908900,"trainer",new Date("2025/05/22")),
     new Employee(3,"vish",9008780,"dev",new Date("2025/05/22"))
   ]
+  userService.getAllUsers().subscribe(response=>console.log(response))
 }
 delete(emp:Employee){
 
